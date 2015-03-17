@@ -1,0 +1,157 @@
+{
+  "inbox" : [
+    {
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426306222417",
+      "subject": "Where is my money!",
+      "body": "Where is my money man! Dont' make me come after you and your family! Also I baked you an apple pie. So you might want to come over and have some before it gets cold!",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426206222417",
+      "subject": "Hey",
+      "body": "Hey man, um. where do you live?",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1425706222417",
+      "subject": "Billy",
+      "body": "So...Billy is backing out on the deal. Don't worry I took care of him",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1425206222417",
+      "subject": "That Thing",
+      "body": "Hey man, can you pick this drop for me? I'll make it work your while...you get me?",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "regochuchu@rockets.com",
+        "name": "Regoberta Menchu"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426106222417",
+      "subject": "Los chicos",
+      "body": "The kids are safe, but I had to kill Meg...Hugs and Kisses",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "gDawg@awesome.com",
+        "name": "Greg Craft"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426506222417",
+      "subject": "I disagree",
+      "body": "Let's talk about it",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "darkness@charliemurphy.com",
+        "name": "Chike Orjih"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426206212417",
+      "subject": "Greg",
+      "body": "I want to be like Greg when I grow up.",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "tastycakes@lovy.com",
+        "name": "Becky"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1426246212417",
+      "subject": "Hey!",
+      "body": "Hey booboo, Click on this link to become a god in the bedroom!",
+      "attachments": []
+    },
+    {
+      "from": {
+        "email": "jbumble@rrc.com",
+        "name": "John Bumble"
+      },
+      "to": [
+        {
+          "email": "you@thismail.com"
+        }
+      ],
+      "cc": [],
+      "bcc":[],
+      "date": "1423206212417",
+      "subject": "Know any UXers?",
+      "body": "Hey, I read you profile on LinkedIn and think your portfolio is amazing. I you wouldn't mind, I would like you to interview for Douchebags incorporated. We are a growing company with energy, you and of course....douchebags. Me thinks you would fit right in!",
+      "attachments": []
+    }
+  ]
+}
