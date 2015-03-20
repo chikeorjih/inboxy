@@ -1,0 +1,16 @@
+{
+  "name": "Ember",
+  "description" : "Ember Inbox App",
+  "version": "0.2.1",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-cli": "~0.1.13"
+  },
+  "devDependencies": {
+    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-notify": "^0.3.1",
+    "load-grunt-tasks": "^0.6.0"
+  }
+}
