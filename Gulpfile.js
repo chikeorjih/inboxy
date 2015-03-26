@@ -1,5 +1,6 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync');
 
 gulp.task('sass', function(){
   gulp.src('./scss/*.scss')
@@ -16,4 +17,17 @@ gulp.task('watches', function(){
   gulp.watch('./scss/*.scss', ['sass']);
 });
 
-gulp.task('default', ['copy-normalize','sass','watches']);
+gulp.task('browser-sync', function () {
+   var files = [
+      './*.html',
+      './css/**/*.css'
+   ];
+
+   browserSync.init(files, {
+      server: {
+         baseDir: './'
+      }
+   });
+});
+
+gulp.task('default', ['copy-normalize','sass','watches','browser-sync']);
