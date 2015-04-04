@@ -1,0 +1,155 @@
+{ "results" : [
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Where is my money man! Don't make me come after you and your family! Also I baked you an apple pie. So you might want to come over and have some before it gets cold!",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426306222417,
+      "from": {
+          "email": "eCMoney@shaka.com",
+          "name": "Edwardo Carochio"
+      },
+      "subject": "Where is my money!",
+      "to": {
+          "email": "you@thismail.com",
+          "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Hey man, um. where do you live?",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426206222417,
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "subject": "Hey",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "So...Billy is backing out on the deal. Don't worry I took care of him",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1425706222417,
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "subject": "Billy",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Hey man, can you pick this drop for me? I'll make it work your while...you get me?",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1425206222417,
+      "from": {
+        "email": "eCMoney@shaka.com",
+        "name": "Edwardo Carochio"
+      },
+      "subject": "That Thing",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "The kids are safe, but I had to kill Meg...Hugs and Kisses",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426106222417,
+      "from": {
+        "email": "regochuchu@rockets.com",
+        "name": "Regoberta Menchu"
+      },
+      "subject": "Los chicos",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Let's talk about it",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426506222417,
+      "from": {
+        "email": "gDawg@awesome.com",
+        "name": "Greg Craft"
+      },
+      "subject": "I disagree",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "I want to be like Greg when I grow up.",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426206212417,
+      "from": {
+        "email": "darkness@charliemurphy.com",
+        "name": "Chike Orjih"
+      },
+      "subject": "Greg",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Hey booboo, Click on this link to become a god in the bedroom!",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1426246212417,
+      "from": {
+        "email": "tastycakes@lovy.com",
+        "name": "Becky"
+      },
+      "subject": "Hey!",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    },
+    {
+      "attachments": [],
+      "bcc": [],
+      "body": "Hey, I read you profile on LinkedIn and think your portfolio is amazing. I you wouldn't mind, I would like you to interview for Douchebags incorporated. We are a growing company with energy, you and of course....douchebags. Me thinks you would fit right in!",
+      "cc": [],
+      "createdAt": "2015-04-04T20:05:00.665Z",
+      "date": 1423206212417,
+      "from": {
+        "email": "jbumble@rrc.com",
+        "name": "John Bumble"
+      },
+      "subject": "Know any UXers?",
+      "to": {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    }
+] }

@@ -1,10 +1,13 @@
-var AppDispatcher = require('app-dispatcher');
-var AppConstants = require('app-constants');
-var merge = require('merge');
-var EventEmitter = require('events').EventEmitter;
+Parse.initialize("BeKKuQFBvHmke4ZmAKb0nvSHHOVcWMVbSXdYhnvX", "qPJpLQmerZhUddTnPQ9VSIpOWZHN2L0fBrXbJqeo");
 
-var CHANGE_EVENT = "change";
+var Email = Parse.Object.extend("Email");
+var email = new Email();
 
-var _bills = [];
 
-module.exports = AppStore;
+// email.save();
+
+// var TestObject = Parse.Object.extend("TestObject");
+// var testObject = new TestObject();
+// testObject.save({foo: "bar"}).then(function(object) {
+//   alert("yay! it worked");
+// });
