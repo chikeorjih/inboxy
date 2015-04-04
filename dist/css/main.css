@@ -371,12 +371,6 @@ td,
 th {
   padding: 0; }
 
-html {
-  box-sizing: border-box; }
-
-*, *::after, *::before {
-  box-sizing: inherit; }
-
 .flex-filler {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
