@@ -1,0 +1,23 @@
+{
+  "name": "inboxy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chikeorjih/inboxy",
+  "authors": [
+    "Scott Nesham <sanesham@gmail.com>"
+  ],
+  "description": "react inbox example",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "normalize-scss": "~3.0.2",
+    "bourbon": "~4.2.1",
+    "neat": "~1.7.1"
+  }
+}

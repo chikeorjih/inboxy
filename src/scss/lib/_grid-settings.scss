@@ -1,0 +1,14 @@
+@import "../../bower_components/neat/app/assets/stylesheets/neat-helpers"; // or "neat-helpers" when in Rails
+
+// Change the grid settings
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 10;
+$max-width: em(2000);
+
+
+$guppy:             0;
+$bass:              480px;
+$swordfish:         768px;
+$shark:             980px;
+$whale:             $max-width;

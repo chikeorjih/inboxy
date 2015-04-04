@@ -1,0 +1,7 @@
+@function img($img){
+  @return url($img-path + $img);
+}
+
+@function font($font){
+  @return url($font-path + $font);
+}

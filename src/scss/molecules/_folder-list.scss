@@ -1,0 +1,53 @@
+.folder-list {
+  padding: $large-padding 0;
+
+  a{
+    color: $app-drawer-color;
+    display: block;
+    padding: #{$large-padding/2} #{$large-padding * 2};
+    font-size: 2em;
+    font-weight: $light;
+    vertical-align: middle;
+        @include transition(all .3s);
+
+    .folder-name{
+        @include transition(all .3s);
+
+      &:after {
+        @include transition(all .3s);
+        content: "";
+        background: $white;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+      }
+    }
+
+    &:hover {
+      .folder-name{
+        position: relative;
+        display: inline-block;
+
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .unread-count {
+    background: $red;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 19px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+    top: -7px;
+  }
+}

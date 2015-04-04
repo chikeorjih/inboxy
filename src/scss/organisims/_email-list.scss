@@ -1,0 +1,18 @@
+.email-list {
+  background: $email-list-bg;
+  max-width: 400px;
+  color: $email-list-color;
+
+  header {
+    text-align: center;
+    padding: $large-padding;
+    background: $blue;
+    color: $white;
+  }
+
+  a{
+    display: block;
+    border-bottom: $light-grey 1px solid;
+    padding: $large-padding;
+  }
+}

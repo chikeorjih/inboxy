@@ -1,0 +1,40 @@
+.email {
+  a {
+    border-left:5px solid $ultra-light-grey;
+    &:focus {
+      border-left:5px solid $indicator-color;
+      outline: none;
+      background: lighten($indicator-color, 45%);
+    }
+  }
+
+  .-header {
+    @include display(flex);
+    vertical-align: middle;
+    font-size: 20px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .indicator {
+    @include transition(all .3s);
+    @include transform(translateY(-50%));
+    background: $indicator-color;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+
+    &.-unread {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .sender {
+    @include flex(1);
+    font-weight: $bold;
+    padding-left: 15px;
+  }
+}

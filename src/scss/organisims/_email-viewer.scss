@@ -1,0 +1,24 @@
+.email-viewer {
+  background: $email-viewer-bg;
+
+  header {
+    @include display(flex);
+    padding: $large-padding;
+    background: $blue-des;
+    color: $white;
+    position: relative;
+
+    h1 {
+      @include flex(1);
+      padding-right: 10px;
+    }
+
+  }
+
+  .date {
+    display: block;
+    vertical-align: middle;
+    line-height: 32px;
+    font-size: 20px;
+  }
+}

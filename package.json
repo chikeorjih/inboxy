@@ -1,0 +1,40 @@
+{
+  "name": "inboxy",
+  "version": "1.0.0",
+  "description": "an example of inboxy using react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chikeorjih/inboxy.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Scott Nesham <sanesham@gmail.com> (https://github.com/sevenfoxes)",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.2.3",
+    "browserify": "^9.0.3",
+    "classnames": "^1.2.0",
+    "es6-promise": "^2.0.1",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^2.0.2",
+    "gulp-ruby-sass": "^1.0.0-alpha.3",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.4",
+    "react": "^0.12.2",
+    "reactify": "^1.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^2.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/chikeorjih/inboxy/issues"
+  },
+  "homepage": "https://github.com/chikeorjih/inboxy"
+}

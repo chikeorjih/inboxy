@@ -1,0 +1,37 @@
+$white:            #fff;
+$red:              #f5563f;
+$blue:             #148dcc;
+$blue-des:         lighten($blue, 5%);
+$blue-dark:        darken($blue, 32%);
+$seafoam:          #00ffcd;
+$black:            #000;
+
+$ultra-light-grey: lighten($black, 97%);
+$light-grey: lighten($black, 90%);
+$grey: lighten($black, 20%);
+
+//    /$$$$$$$   /$$$$$$$
+//   | $$__  $$ /$$_____/
+//   | $$  \ $$|  $$$$$$
+//   | $$  | $$ \____  $$
+//   | $$  | $$ /$$$$$$$/
+//   |__/  |__/|_______/
+$text-color:       $grey;
+$app-bg:           $white;
+$app-drawer-bg:    $blue-dark;
+$app-drawer-color: $white;
+$email-list-bg:    $ultra-light-grey;
+$email-list-color: $text-color;
+$email-viewer-bg:  $white;
+$indicator-color:  $seafoam;
+
+
+$large-padding: 20px;
+
+$font-family: "freight-sans-pro",sans-serif;
+$light:       300;
+$normal:      400;
+$bold:        600;
+
+$img-path:        '../img/';
+$font-path:       '../fonts/';

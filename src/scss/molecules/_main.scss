@@ -1,0 +1,24 @@
+main {
+  @include display(flex);
+  @include flex(1);
+  @include transition(all .3s  ease-in-out);
+  min-height: 100%;
+  position: relative;
+
+
+  &.menu-open {
+    @include transform(scale(.9) translateX(20%) translateY(3%));
+    box-shadow: 0 0 20px rgba(0,0,0, 1);
+    opacity: .8;
+  }
+
+  @include media($whale) {
+    box-shadow: 0 0 10px rgba(0,0,0, 1);
+    z-index: 2;
+
+    &.menu-open {
+      @include transform(scale(1) translateX(0));
+      box-shadow: 0 0 10px rgba(0,0,0, 1);
+    }
+  }
+}

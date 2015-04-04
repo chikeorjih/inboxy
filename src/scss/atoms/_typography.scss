@@ -1,0 +1,9 @@
+%h {
+  font-weight: $light;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  @extend %h;
+}
