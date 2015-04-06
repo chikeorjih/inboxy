@@ -1,7 +1,7 @@
 .email {
   a {
     border-left:5px solid $ultra-light-grey;
-    &:focus {
+    &.-active {
       border-left:5px solid $indicator-color;
       outline: none;
       background: lighten($indicator-color, 45%);

@@ -588,7 +588,7 @@ section {
 
 .email a {
   border-left: 5px solid #f7f7f7; }
-  .email a:focus {
+  .email a.-active {
     border-left: 5px solid #00ffcd;
     outline: none;
     background: #e5fffa; }
