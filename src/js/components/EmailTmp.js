@@ -1,7 +1,8 @@
 /** @jsx React.DOM */
-var React    = require('react');
-var classSet = require('classnames');
-var moment   = require('moment');
+var React         = require('react');
+var classSet      = require('classnames');
+var moment        = require('moment');
+var AppDispatcher = require('app-dispatcher');
 
 var EmailTmp = React.createClass({
   getInitialState: function() {
@@ -11,7 +12,7 @@ var EmailTmp = React.createClass({
     });
   },
 
-  handleClick : function() {
+  handleClick: function() {
     if (this.state.unread) {
       this.setState({
         unread: false
@@ -21,7 +22,7 @@ var EmailTmp = React.createClass({
     }
   },
 
-  handleFocus : function() {
+  handleFocus: function() {
     this.setState({
       active: true
     }, function (){
@@ -29,7 +30,7 @@ var EmailTmp = React.createClass({
     });
   },
 
-  handleBlur : function() {
+  handleBlur: function() {
     this.setState({
       active: false
     }, function (){

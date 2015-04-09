@@ -1,5 +1,5 @@
-var Promise = require('es6-promise').Promise;
-var merge = require('react/lib/merge');
+var Promiser   = require('es6-promise').Promise;
+var _          = require('underscore');
 
 var _callbacks = [];
 var _promises = [];
@@ -10,7 +10,7 @@ var _promises = [];
  * @param {object} payload The data from the Action.
  */
 var _addPromise = function(callback, payload) {
-  _promises.push(new Promise(function(resolve, reject) {
+  _promises.push(new Promiser(function(resolve, reject) {
     if (callback(payload)) {
       resolve(payload);
     } else {
@@ -27,7 +27,7 @@ var _clearPromises = function() {
 };
 
 var Dispatcher = function() {};
-Dispatcher.prototype = merge(Dispatcher.prototype, {
+Dispatcher.prototype = _.extend({}, Dispatcher.prototype, {
 
   /**
    * Register a Store's callback so that it may be invoked by an action.
@@ -47,7 +47,7 @@ Dispatcher.prototype = merge(Dispatcher.prototype, {
     _callbacks.forEach(function(callback) {
       _addPromise(callback, payload);
     });
-    Promise.all(_promises).then(_clearPromises);
+    Promiser.all(_promises).then(_clearPromises);
   }
 
 });

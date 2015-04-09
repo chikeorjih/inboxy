@@ -1,6 +1,7 @@
-module.exports = {
-  ADD_BILL: 'ADD_BILL',
-  REMOVE_BILL: 'REMOVE_BILL',
-  INCREASE_PMT: 'INCREASE_PMT',
-  DECREASE_PMT: 'DECREASE_PMT'
-};
+var keyMirror = require('react/lib/keyMirror');
+
+// Define action constants
+module.exports = keyMirror({
+  EMAIL_READ: null,       // Adds item to cart
+  EMAIL_DELETE: null    // Remove item from cart
+});
