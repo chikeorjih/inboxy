@@ -29,7 +29,7 @@ var EmailViewer = React.createClass({
           <h1>Where is My Money?</h1>
           <span className="date">03/10/15</span>
         </header>
-        <div className="email-actionbar">
+        <div className="-actionbar">
           <div className="sender"></div>
           <button className="button mark-read">Mark as read</button>
         </div>

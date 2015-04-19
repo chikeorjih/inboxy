@@ -2,7 +2,6 @@
 var React         = require('react');
 var classSet      = require('classnames');
 var moment        = require('moment');
-var AppDispatcher = require('app-dispatcher');
 
 var EmailTmp = React.createClass({
   getInitialState: function() {

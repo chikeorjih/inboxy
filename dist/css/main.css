@@ -371,6 +371,12 @@ td,
 th {
   padding: 0; }
 
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 .flex-filler {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -632,6 +638,11 @@ section {
   flex: 1;
   font-weight: 600;
   padding-left: 15px; }
+
+.-actionbar {
+  background: #fff;
+  text-align: right;
+  padding: 10px; }
 
 .app-drawer {
   background-color: #052637;
