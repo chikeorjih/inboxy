@@ -20,7 +20,6 @@
     "browserify": "^9.0.3",
     "classnames": "^1.2.0",
     "es6-promise": "^2.0.1",
-    "flux": "^2.0.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-filter": "^2.0.2",
