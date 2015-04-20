@@ -593,7 +593,10 @@ section {
     top: -7px; }
 
 .email a {
-  border-left: 5px solid #f7f7f7; }
+  border-left: 5px solid #f7f7f7;
+  display: block;
+  border-bottom: #e6e6e6 1px solid;
+  padding: 20px 20px 20px 35px; }
   .email a.-active {
     border-left: 5px solid #00ffcd;
     outline: none;
@@ -609,7 +612,8 @@ section {
   vertical-align: middle;
   font-size: 20px;
   position: relative;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  margin-left: -17px; }
 .email .indicator {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -683,10 +687,6 @@ section {
     padding: 20px;
     background: #148dcc;
     color: #fff; }
-  .email-list a {
-    display: block;
-    border-bottom: #e6e6e6 1px solid;
-    padding: 20px; }
 
 .email-viewer {
   background: #fff; }

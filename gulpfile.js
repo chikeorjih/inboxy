@@ -6,6 +6,8 @@ var buffer       = require('vinyl-buffer');
 var watchify     = require('watchify');
 var browserify   = require('browserify');
 var reactify     = require('reactify');
+var svgSprite    = require('gulp-svg-sprite');
+var svgo         = require('gulp-svgo');
 
 
 //sass
@@ -23,14 +25,16 @@ var path = {
     styles: 'src/scss/',
     js:     'src/js/',
     app:    './src/js/main.js',
-    html:   ['src/index.html', 'src/**/*.jpg']
+    html:   ['src/index.html', 'src/**/*.jpg'],
+    svg:    'src/svg/*.svg'
   },
 
   dist: {
     root:   'dist/',
     styles: 'dist/css/',
     js:     'dist/js/',
-    app:    'main.js'
+    app:    'main.js',
+    svg:    'dist/img'
   }
 };
 
@@ -83,7 +87,31 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(path.dist.styles));
 });
 
-gulp.task('browser-sync', ['sass', 'browserify', 'copy'], function() {
+gulp.task('svg', function() {
+  return gulp.src(path.src.svg)
+    .pipe(svgo())
+    .pipe(svgSprite({
+      'mode': {
+        'css': {
+          'spacing': {
+            'padding': 5
+          },
+          'dest': './',
+          'layout': 'diagonal',
+          'sprite': 'img/sprite.svg',
+          'bust': false,
+          'render': {
+            'scss': {
+              'dest': '../src/scss/atoms/_svg.scss'
+            }
+          }
+        }
+      }
+    }))
+    .pipe(gulp.dest(path.dist.root));
+});
+
+gulp.task('browser-sync', ['svg', 'sass', 'browserify', 'copy'], function() {
   browserSync({
     server: {
       baseDir: "dist"
@@ -91,6 +119,7 @@ gulp.task('browser-sync', ['sass', 'browserify', 'copy'], function() {
     ghostMode: true,
     notify: true,
     port: 9000,
+    open: false,
     ui: {
       port: 9015,
       weinre: {
