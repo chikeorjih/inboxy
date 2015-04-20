@@ -87,6 +87,8 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(path.dist.styles));
 });
 
+
+// I don't know what the fuck...
 gulp.task('svg', function() {
   return gulp.src(path.src.svg)
     .pipe(svgo())
