@@ -8,6 +8,14 @@
   &:focus {
     outline: none;
   }
+
+  &.-mark-read {
+
+  }
+
+  &.-delete {
+    color: $red;
+  }
 }
 
 %menu-line {

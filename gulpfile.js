@@ -1,23 +1,25 @@
-var gulp         = require('gulp');
-var gutil        = require('gulp-util');
-var uglify       = require('gulp-uglify');
-var source       = require('vinyl-source-stream');
-var buffer       = require('vinyl-buffer');
-var watchify     = require('watchify');
-var browserify   = require('browserify');
-var reactify     = require('reactify');
-var svgSprite    = require('gulp-svg-sprite');
-var svgo         = require('gulp-svgo');
+var gulp        = require('gulp');
+var gutil       = require('gulp-util');
+var uglify      = require('gulp-uglify');
+var source      = require('vinyl-source-stream');
+var buffer      = require('vinyl-buffer');
+var watchify    = require('watchify');
+var browserify  = require('browserify');
+var reactify    = require('reactify');
+var svgstore    = require('gulp-svgstore');
+var svgmin      = require('gulp-svgmin');
+var inject      = require('gulp-inject');
+var cheerio     = require('gulp-cheerio');
 
 
 //sass
-var sass         = require("gulp-ruby-sass");
-var filter       = require('gulp-filter');
-var sourcemaps   = require('gulp-sourcemaps');
+var sass        = require("gulp-ruby-sass");
+var filter      = require('gulp-filter');
+var sourcemaps  = require('gulp-sourcemaps');
 
 // browser-sync
-var browserSync  = require('browser-sync');
-var reload       = browserSync.reload;
+var browserSync = require('browser-sync');
+var reload      = browserSync.reload;
 
 var path = {
   src: {
@@ -87,30 +89,24 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(path.dist.styles));
 });
 
-
-// I don't know what the fuck...
-gulp.task('svg', function() {
-  return gulp.src(path.src.svg)
-    .pipe(svgo())
-    .pipe(svgSprite({
-      'mode': {
-        'css': {
-          'spacing': {
-            'padding': 5
-          },
-          'dest': './',
-          'layout': 'diagonal',
-          'sprite': 'img/sprite.svg',
-          'bust': false,
-          'render': {
-            'scss': {
-              'dest': '../src/scss/atoms/_svg.scss'
-            }
-          }
-        }
+gulp.task('svg', function () {
+  var svgs = gulp
+    .src('src/svg/*.svg')
+    .pipe(cheerio({
+      run: function ($) {
+        $('[fill]').removeAttr('fill');
       }
     }))
-    .pipe(gulp.dest(path.dist.root));
+    .pipe(svgstore({ inlineSvg: true }));
+
+  function fileContents (filePath, file) {
+    return file.contents.toString();
+  }
+
+  return gulp
+    .src('src/index.html')
+    .pipe(inject(svgs, { transform: fileContents }))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('browser-sync', ['svg', 'sass', 'browserify', 'copy'], function() {

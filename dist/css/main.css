@@ -371,6 +371,12 @@ td,
 th {
   padding: 0; }
 
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 .flex-filler {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -452,6 +458,8 @@ h1 {
   margin: 0; }
   .button:focus {
     outline: none; }
+  .button.-delete {
+    color: #f5563f; }
 
 .menu-button span, .menu-button:before, .menu-button:after {
   width: 25px;
@@ -661,6 +669,8 @@ section {
   .-actionbar .sender-email {
     font-weight: normal;
     font-style: italic; }
+  .-actionbar button {
+    margin-left: 10px; }
 
 .app-drawer {
   background-color: #052637;
@@ -741,6 +751,18 @@ section {
     -ms-flex: 1;
     flex: 1;
     text-align: left; }
+  .email-viewer .noactive {
+    -webkit-transform: translateY(-400%);
+    -moz-transform: translateY(-400%);
+    -ms-transform: translateY(-400%);
+    -o-transform: translateY(-400%);
+    transform: translateY(-400%);
+    color: #e6e6e6;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center; }
 
 
 

@@ -3,6 +3,7 @@ var React         = require('react');
 var classSet      = require('classnames');
 var moment        = require('moment');
 var PubSub        = require('pubsub-js');
+var ParseReact    = require('parse-react');
 
 var EmailTmp = React.createClass({
   getInitialState: function() {
