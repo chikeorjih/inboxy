@@ -15,18 +15,20 @@ var EmailViewer = React.createClass({
       date:        '',
       senderName:  '',
       senderEmail: '',
-      body:        ''
+      body:        '',
+      activeEmail: false
     });
   },
 
   _activate: function (email) {
     this.setState({
-        subject:     email.subject,
-        date:        moment(email.date).format('L'),
-        senderName:  email.from.name,
-        senderEmail: email.from.email,
-        body:        email.body
-      });
+      subject:     email.subject,
+      date:        moment(email.date).format('L'),
+      senderName:  email.from.name,
+      senderEmail: email.from.email,
+      body:        email.body,
+      activeEmail: true
+    });
   },
 
   componentDidMount: function () {
@@ -41,14 +43,7 @@ var EmailViewer = React.createClass({
     var self = this;
 
     var activeEmail = classSet({
-      'active': function () {
-        console.log('here');
-        if (self.state.senderName != '') {
-          return true;
-        };
-
-        return false;
-      }
+      'active': self.state.activeEmail
     });
 
     return (
