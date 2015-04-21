@@ -116,7 +116,8 @@ gulp.task('svg', function() {
 gulp.task('browser-sync', ['svg', 'sass', 'browserify', 'copy'], function() {
   browserSync({
     server: {
-      baseDir: "dist"
+      baseDir: "dist",
+      https: true
     },
     ghostMode: true,
     notify: true,

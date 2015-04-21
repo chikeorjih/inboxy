@@ -21,4 +21,13 @@
     line-height: 32px;
     font-size: 20px;
   }
+
+  .-body {
+    padding: $large-padding;
+  }
+
+  .sender {
+    @include flex(1);
+    text-align: left;
+  }
 }

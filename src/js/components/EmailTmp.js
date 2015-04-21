@@ -2,46 +2,73 @@
 var React         = require('react');
 var classSet      = require('classnames');
 var moment        = require('moment');
+var PubSub        = require('pubsub-js');
 
 var EmailTmp = React.createClass({
   getInitialState: function() {
     return ({
-      unread: this.props.email.unread,
-      active: this.props.email.active
+      active: false,
+      bodyTooLong: false,
+      subjectTooLong: false
     });
   },
 
   handleClick: function() {
-    if (this.state.unread) {
+    PubSub.publish( 'email.activate', this.props.email );
+
+    this.setState({
+      active: true
+    });
+
+    if (this.props.email.unread) {
       this.setState({
         unread: false
       }, function (){
-        this.props.update(this.props.email.id, this.state.unread);
+        ParseReact.Mutation.Set(this.props.email, {
+          unread: this.state.unread
+        }).dispatch();
       });
     }
   },
 
-  handleFocus: function() {
-    this.setState({
-      active: true
-    }, function (){
-      this.props.update(this.props.email.id, this.state.active);
-    });
+  componentDidMount: function() {
+
+    if (this.props.email.subject.length > 30) {
+      this.setState({
+        subjectTooLong: true
+      });
+
+    }
+    else if (this.props.email.body.length > 50) {
+      this.setState({
+        bodyTooLong: true
+      });
+    }
   },
+
 
   handleBlur: function() {
     this.setState({
       active: false
-    }, function (){
-      this.props.update(this.props.email.id, this.state.active);
     });
   },
 
   render: function(){
+    var self = this;
+
+    var excerptClasses = classSet({
+      '-excerpt': true,
+      'ellipse': this.state.bodyTooLong
+    });
+
+    var subjectClasses = classSet({
+      '-subject': true,
+      'ellipse': this.state.subjectTooLong
+    });
 
     var indicators = classSet({
       'indicator': true,
-      '-unread': this.state.unread,
+      '-unread': this.props.email.unread,
     });
 
     var activeStateClass = classSet({
@@ -50,14 +77,17 @@ var EmailTmp = React.createClass({
 
     return (
       <li className="email">
-        <a href="#" className={activeStateClass} onClick={this.handleClick} onFocus={this.handleFocus} onBlur={this.handleBlur}>
+        <a href="#" className={activeStateClass} onClick={this.handleClick} onBlur={this.handleBlur}>
           <div className="-header">
             <span className={indicators}></span>
-            <span className="sender">{this.props.email.from.name}</span>
+            <span className={subjectClasses}>{this.props.email.subject.substring(0, 30)}</span>
             <span className="date">{moment(this.props.email.recieved).format('L')}</span>
           </div>
-          <div className="excerpt">
-          {this.props.email.body.substring(0, 50)}
+          <div className="-sender">
+            From: {this.props.email.from.name}
+          </div>
+          <div className={excerptClasses}>
+            {this.props.email.body.substring(0, 50)}
           </div>
         </a>
       </li>

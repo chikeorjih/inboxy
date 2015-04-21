@@ -1,5 +1,16 @@
 .-actionbar {
+  @include display(flex);
   background: $white;
   text-align: right;
-  padding: $medium-padding;
+  padding: $medium-padding $large-padding;
+  border-bottom: $light-grey 1px solid;
+
+  .sender {
+    font-weight: bold;
+  }
+
+  .sender-email {
+    font-weight: normal;
+    font-style: italic;
+  }
 }

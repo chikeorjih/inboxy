@@ -4,15 +4,34 @@ var AppDrawer    = require('AppDrawer');
 var EmailList    = require('EmailList');
 var EmailViewer  = require('EmailViewer');
 var classSet     = require('classnames');
+var PubSub       = require('pubsub-js');
 
 var APP = React.createClass({
   getInitialState: function() {
     return {
-      menuIsOpen : false
+      menuIsOpen : false,
+      activeEmail: false,
     };
   },
 
-  handleClick : function() {
+  _activate: function (email) {
+
+    this.setState({
+      activeEmail: email
+    });
+  },
+
+  componentDidMount: function (msg, data) {
+    var self = this;
+
+    PubSub.subscribe('email.activate', function(msg, data) {
+
+      self._activate(data);
+
+    });
+  },
+
+  _handleClick : function() {
     this.setState({
       menuIsOpen: !this.state.menuIsOpen
     });
@@ -27,12 +46,12 @@ var APP = React.createClass({
       <div className="APP">
         <AppDrawer/>
         <main className={openCloseMenuClasses}>
-          <button className="button menu-button" onClick={this.handleClick}>
+          <button className="button menu-button" onClick={this._handleClick}>
             <span></span>
             <span className="text">Menu</span>
           </button>
-          <EmailList/>
-          <EmailViewer/>
+          <EmailList />
+          <EmailViewer activeEmail={this.state.activeEmail}/>
         </main>
       </div>
     );

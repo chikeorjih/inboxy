@@ -7,7 +7,7 @@ var EmailTmp    = require('EmailTmp');
 var EmailList = React.createClass({
   mixins: [ParseReact.Mixin],
 
-  observe: function (props, state) {
+  observe: function () {
     return {
       Emails: (new Parse.Query('Email')).ascending('recieved')
     };
@@ -24,19 +24,14 @@ var EmailList = React.createClass({
         <ul>
           {this.data.Emails.map(function(i) {
             return (
-              <EmailTmp key={i.id} email={i} update={self._updateItem} />
+              <EmailTmp key={i.id} email={i} />
             );
           })}
         </ul>
       </section>
     );
-  },
-
-  _updateItem: function(id, unreadIndication) {
-    ParseReact.Mutation.Set(id, {
-      unread: unreadIndication
-    }).dispatch();
   }
+
 });
 
 

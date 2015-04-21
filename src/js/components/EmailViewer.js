@@ -5,38 +5,45 @@ var ParseReact = require('parse-react');
 var moment     = require('moment');
 
 var EmailViewer = React.createClass({
-  mixins: [ParseReact.Mixin],
-
-  observe: function (props, state) {
-    return {
-      ActiveEmail: (
-        new Parse.Query('Email')
-          .equalTo('active', true)
-      )
-    };
-  },
-
-  // getInitialState: function() {
-  //   return ({
-  //     activeEmail: this.data.ActiveEmail
-  //   });
-  // },
 
   render: function(){
-    return (
-      <section className="email-viewer">
-        <header classNam="email-header">
-          <h1>Where is My Money?</h1>
-          <span className="date">03/10/15</span>
-        </header>
-        <div className="-actionbar">
-          <div className="sender"></div>
-          <button className="button mark-read">Mark as read</button>
-        </div>
-        <article className="email-body">
-        </article>
-      </section>
-    );
+    var self = this;
+
+    console.log(this.props.activeEmail);
+
+    if (this.props.activeEmail) {
+      return (
+        <section className="email-viewer">
+          <header classNam="email-header">
+            <h1>{this.props.activeEmail.subject}</h1>
+            <span className="date">{moment(this.props.activeEmail.recieved).format('L')}</span>
+          </header>
+          <div className="-actionbar">
+            <div className="sender">from: {this.props.activeEmail.from.name} <span className="sender-email">{"<" + this.props.activeEmail.from.email + ">"}</span></div>
+            <button className="button mark-read">Mark as unread</button>
+          </div>
+          <article className="-body">
+          {this.props.activeEmail.body}
+          </article>
+        </section>
+      );
+
+    }
+
+    else {
+      return (
+        <section className="email-viewer">
+          <header classNam="email-header">
+            <h1>Select an email</h1>
+            <span className="date">--/--/--</span>
+          </header>
+          <article className="-body">
+          You have nothing open!
+          </article>
+        </section>
+      );
+    }
+
   }
 });
 
