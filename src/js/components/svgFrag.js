@@ -12,12 +12,12 @@ var svgFrag = React.createClass({
     }
 
     else {
-      viewBox = "0 0 100 100";
+      viewBox = "0 0 24 24";
     }
 
-    svgElement = '<svg viewBox="' + viewBox + '">' + '<use xlink:href=#' + this.props.frag + '></use></svg>';
+    svgElement = '<svg class="svg-base ' + this.props.frag + '" viewBox="' + viewBox + '">' + '<use xlink:href=#' + this.props.frag + '></use></svg>';
 
-    return <span dangerouslySetInnerHTML={{__html: svgElement}} />;
+    return <span className="svgWrapper" dangerouslySetInnerHTML={{__html: svgElement}} />;
   }
 });
 

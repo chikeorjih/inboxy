@@ -1,14 +1,12 @@
-%svg-common {
-	background: url(img/sprite.svg) no-repeat;
+.svg-base {
+	width: $svg-base;
+	height: $svg-base;
+  display: block;
+  vertical-align: middle;
 }
 
-.svg-settings {
-	@extend %svg-common;
-	background-position: 0 0;
-}
-
-.svg-settings-dims {
-	width: 48px;
-	height: 48px;
+.svgWrapper {
+  display: block;
+  margin-left: 1px;
 }
 

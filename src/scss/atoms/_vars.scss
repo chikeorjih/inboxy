@@ -7,8 +7,10 @@ $seafoam:          #00ffcd;
 $black:            #000;
 
 $ultra-light-grey: lighten($black, 97%);
-$light-grey: lighten($black, 90%);
-$grey: lighten($black, 20%);
+$light-grey:       lighten($black, 90%);
+$grey:             lighten($black, 20%);
+
+$svg-base:         24px;
 
 //    /$$$$$$$   /$$$$$$$
 //   | $$__  $$ /$$_____/

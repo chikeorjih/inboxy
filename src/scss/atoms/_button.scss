@@ -9,13 +9,24 @@
     outline: none;
   }
 
-  &.-mark-read {
-
+  &.-mark-unread {
+    svg {
+      fill: $text-color;
+    }
   }
 
   &.-delete {
     color: $red;
+
+    svg {
+      fill: $red;
+    }
   }
+
+  .svgWrapper {
+    float: right;
+  }
+
 }
 
 %menu-line {

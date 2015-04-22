@@ -95,6 +95,8 @@ gulp.task('svg', function () {
     .pipe(cheerio({
       run: function ($) {
         $('[fill]').removeAttr('fill');
+        $('[width]').removeAttr('width');
+        $('[height]').removeAttr('height');
       }
     }))
     .pipe(svgstore({ inlineSvg: true }));
@@ -130,6 +132,7 @@ gulp.task('browser-sync', ['svg', 'sass', 'browserify', 'copy'], function() {
   gulp.watch(['src/**/*.html', 'src/**/*.jpg'], ['copy']);
   gulp.watch('src/**/*.js', ['browserify']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
+  gulp.watch('src/svg/**/*.svg', ['svg']);
 });
 
 gulp.task('default', ['browser-sync']);

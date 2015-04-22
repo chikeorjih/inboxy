@@ -371,11 +371,15 @@ td,
 th {
   padding: 0; }
 
-html {
-  box-sizing: border-box; }
+.svg-base {
+  width: 24px;
+  height: 24px;
+  display: block;
+  vertical-align: middle; }
 
-*, *::after, *::before {
-  box-sizing: inherit; }
+.svgWrapper {
+  display: block;
+  margin-left: 1px; }
 
 .flex-filler {
   -webkit-box-flex: 1;
@@ -458,8 +462,14 @@ h1 {
   margin: 0; }
   .button:focus {
     outline: none; }
+  .button.-mark-unread svg {
+    fill: #333333; }
   .button.-delete {
     color: #f5563f; }
+    .button.-delete svg {
+      fill: #f5563f; }
+  .button .svgWrapper {
+    float: right; }
 
 .menu-button span, .menu-button:before, .menu-button:after {
   width: 25px;
@@ -660,17 +670,27 @@ section {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: margin-top 0.2s;
+  -moz-transition: margin-top 0.2s;
+  transition: margin-top 0.2s;
+  margin-top: -47px;
   background: #fff;
   text-align: right;
   padding: 10px 20px;
   border-bottom: #e6e6e6 1px solid; }
+  .-actionbar.slideDown {
+    -webkit-transition: margin-top 0.2s;
+    -moz-transition: margin-top 0.2s;
+    transition: margin-top 0.2s;
+    margin-top: 0; }
   .-actionbar .sender {
     font-weight: bold; }
   .-actionbar .sender-email {
     font-weight: normal;
     font-style: italic; }
   .-actionbar button {
-    margin-left: 10px; }
+    margin-left: 10px;
+    line-height: 24px; }
 
 .app-drawer {
   background-color: #052637;
@@ -751,18 +771,33 @@ section {
     -ms-flex: 1;
     flex: 1;
     text-align: left; }
-  .email-viewer .noactive {
-    -webkit-transform: translateY(-400%);
-    -moz-transform: translateY(-400%);
-    -ms-transform: translateY(-400%);
-    -o-transform: translateY(-400%);
-    transform: translateY(-400%);
-    color: #e6e6e6;
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center; }
+  .email-viewer.active .noactive {
+    visibility: hidden;
+    opacity: 0; }
+
+.noactive {
+  -webkit-transform: translateY(-400%);
+  -moz-transform: translateY(-400%);
+  -ms-transform: translateY(-400%);
+  -o-transform: translateY(-400%);
+  transform: translateY(-400%);
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  visibility: visible;
+  opacity: 1;
+  color: #e6e6e6;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center; }
+  .noactive.fadeOut {
+    -webkit-transition: visibility 0s 0.3s, opacity 0.3s linear;
+    -moz-transition: visibility 0s 0.3s, opacity 0.3s linear;
+    transition: visibility 0s 0.3s, opacity 0.3s linear;
+    visibility: hidden;
+    opacity: 0; }
 
 
 

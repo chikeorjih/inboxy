@@ -42,26 +42,30 @@ var EmailViewer = React.createClass({
   render: function(){
     var self = this;
 
-    var activeEmail = classSet({
-      'active': self.state.activeEmail
+    var fadeCompose = classSet({
+      'fadeOut': self.state.activeEmail
+    });
+
+    var slideDown = classSet({
+      'slideDown': self.state.activeEmail
     });
 
     return (
-      <section className={"email-viewer " + activeEmail}>
+      <section className="email-viewer">
         <header classNam="email-header">
           <h1>{self.state.subject} &nbsp;</h1>
           <span className="date">{self.state.date}</span>
         </header>
-        <div className="-actionbar">
+        <div className={"-actionbar "  + slideDown}>
           <div className="sender">{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
-          <button className="button -mark-read">Mark as unread</button>
+          <button className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
           <button className="button -delete">
-            Delete
+            Delete <Frag frag="delete" />
           </button>
-          <Frag frag="settings" />
+
         </div>
         <article className="-body">
-        <div className="noactive">Click to compose a new email</div>
+          <div className={"noactive " + fadeCompose}>Click to compose a new email</div>
           {self.state.body}
         </article>
       </section>

@@ -31,13 +31,22 @@
     text-align: left;
   }
 
-  .noactive {
-    @include transform(translateY(-400%));
-    color: $light-grey;
-    font-size: 50px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
+
+  &.active {
+    .noactive {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
+}
+
+.noactive {
+  @include transform(translateY(-400%));
+  @include fade();
+  color: $light-grey;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
 }

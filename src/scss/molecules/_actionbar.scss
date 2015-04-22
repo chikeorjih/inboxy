@@ -1,5 +1,6 @@
 .-actionbar {
   @include display(flex);
+  @include slide(-47px);
   background: $white;
   text-align: right;
   padding: $medium-padding $large-padding;
@@ -16,5 +17,6 @@
 
   button {
     margin-left: $medium-padding;
+    line-height: $svg-base;
   }
 }
