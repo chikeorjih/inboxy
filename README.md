@@ -1,6 +1,6 @@
 # inboxy
 
-This is a simplistic version of this app. Very little is going on with the server since we're focused on react that's really all I'm going to show. If this were a real app, you'd want to add server side element rendering.
+This is slowly becoming a real app
 
 
 ## setup
@@ -11,19 +11,10 @@ run the following command
 npm install; bower install; gulp
 ```
 
-- app
-  - logo
-  - email
-    - emailTools
 
-  - folder
+## todo
 
-  - folderList
-    + folder
-
-  - emailList
-    + folder.active
-    + email.truncate
-
-  - emailViewer
-    + email
+- new email
+- reply
+- move to folder
+- users

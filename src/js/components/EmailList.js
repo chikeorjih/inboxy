@@ -3,6 +3,7 @@ var Parse       = require('parse').Parse;
 var React       = require('react');
 var ParseReact  = require('parse-react');
 var EmailTmp    = require('EmailTmp');
+var PubSub      = require('pubsub-js');
 
 var EmailList = React.createClass({
   mixins: [ParseReact.Mixin],
@@ -11,6 +12,22 @@ var EmailList = React.createClass({
     return {
       Emails: (new Parse.Query('Email')).ascending('recieved')
     };
+  },
+
+  _deleteEmail: function(msg, id) {
+    var trash = {
+      className: 'Email',
+      objectId: id
+    };
+
+    ParseReact.Mutation.Destroy(trash).dispatch();
+  },
+
+  componentDidMount: function() {
+    var self = this;
+    PubSub.subscribe('deleteEmail', function(msg, id) {
+      self._deleteEmail(msg, id);
+    });
   },
 
   render: function(){

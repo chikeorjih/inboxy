@@ -27,7 +27,21 @@ var EmailViewer = React.createClass({
       senderName:  email.from.name,
       senderEmail: email.from.email,
       body:        email.body,
-      activeEmail: true
+      activeEmail: true,
+      activeEmailID: email.objectId
+    });
+  },
+
+  _handleDelete: function () {
+    PubSub.publish('deleteEmail', this.state.activeEmailID );
+
+    this.setState({
+      subject:     '',
+      date:        '',
+      senderName:  '',
+      senderEmail: '',
+      body:        '',
+      activeEmail: false
     });
   },
 
@@ -59,13 +73,13 @@ var EmailViewer = React.createClass({
         <div className={"-actionbar "  + slideDown}>
           <div className="sender">{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
           <button className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
-          <button className="button -delete">
+          <button className="button -delete" onClick={this._handleDelete}>
             Delete <Frag frag="delete" />
           </button>
 
         </div>
         <article className="-body">
-          <div className={"noactive " + fadeCompose}>Click to compose a new email</div>
+          <div className={"noactive " + fadeCompose}>Compose a new email</div>
           {self.state.body}
         </article>
       </section>
