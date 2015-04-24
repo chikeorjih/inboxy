@@ -1,12 +1,26 @@
 .email-viewer {
   background: $email-viewer-bg;
 
+  input,
+  textarea {
+    display: none;
+  }
+
   header {
     @include display(flex);
     padding: $large-padding;
     background: $blue-des;
     color: $white;
     position: relative;
+    height: 37px;
+
+    input {
+      @include placeholder {
+        color: #eee;
+      }
+
+      width: 100%;
+    }
 
     h1 {
       @include flex(1);
@@ -36,6 +50,13 @@
     .noactive {
       visibility: hidden;
       opacity: 0;
+    }
+  }
+
+  &.composing {
+    input,
+    textarea {
+      display: block;
     }
   }
 }

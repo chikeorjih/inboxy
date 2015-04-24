@@ -6,12 +6,16 @@ var EmailViewer  = require('EmailViewer');
 var classSet     = require('classnames');
 var Frag         = require('svgFrag');
 var PubSub       = require('pubsub-js');
+var ParseReact  = require('parse-react');
 
 var APP = React.createClass({
+  // mixins: [ParseReact.Mixin],
+
   getInitialState: function() {
     return {
-      menuIsOpen : false,
-      active: false
+      menuIsOpen: false,
+      active:     false,
+      composing:  false
     };
   },
 
@@ -22,13 +26,19 @@ var APP = React.createClass({
   },
 
   _compose: function() {
-    console.log("yup");
+    this.setState({
+      composing: true
+    });
+
+    // ParseReact.Mutation.Create('TodoItem', {
+    //   text: text
+    // }).dispatch();
   },
 
   _activate: function () {
-    console.log("yes");
     this.setState({
-      active: true
+      active: true,
+      composing: false
     });
   },
 
@@ -44,8 +54,8 @@ var APP = React.createClass({
       'menu-open': this.state.menuIsOpen
     });
 
-    var activeStateClass = classSet({
-      '-active': this.state.active
+    var composingToggle = classSet({
+      'fadeOut': this.state.composing
     });
 
     return (
@@ -56,11 +66,11 @@ var APP = React.createClass({
             <span></span>
             <span className="text">Menu</span>
           </button>
-          <button className={"button -compose " + activeStateClass} onClick={this._compose}>
+          <button className={"button -compose " + composingToggle} onClick={this._compose}>
             <span className="text">compose <Frag frag="edit" /></span>
           </button>
           <EmailList />
-          <EmailViewer />
+          <EmailViewer composing={this.state.composing} />
         </main>
       </div>
     );

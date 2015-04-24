@@ -50,3 +50,15 @@ a {
   color: $text-color;
   text-decoration: none;
 }
+
+input {
+  padding: 0;
+  margin: 0;
+  display: block;
+  border: none;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}

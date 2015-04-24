@@ -53,25 +53,45 @@ var EmailViewer = React.createClass({
     });
   },
 
+  _fadingElements: function () {
+    var self = this;
+    classnames = {};
+    if (self.state.activeEmail || self.props.composing) {
+      classnames.fadeOut = true
+    };
+
+    return classnames;
+  },
+
+  _slideDownElements: function () {
+    var self = this;
+    classnames = {};
+    if (self.state.activeEmail || self.props.composing) {
+      classnames.slideDown = true
+    };
+
+    return classnames;
+  },
+
   render: function(){
     var self = this;
 
-    var fadeCompose = classSet({
-      'fadeOut': self.state.activeEmail
+    var fadeCompose = classSet(self._fadingElements());
+    var slideDown = classSet(self._slideDownElements());
+
+    var composing = classSet({
+      'composing': self.props.composing
     });
 
-    var slideDown = classSet({
-      'slideDown': self.state.activeEmail
-    });
 
     return (
-      <section className="email-viewer">
+      <section className={"email-viewer " + composing}>
         <header classNam="email-header">
-          <h1>{self.state.subject} &nbsp;</h1>
+          <h1>{self.state.subject}<input placeholder="Subject..." /></h1>
           <span className="date">{self.state.date}</span>
         </header>
         <div className={"-actionbar "  + slideDown}>
-          <div className="sender">{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
+          <div className="sender"><input placeholder="To: " />{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
           <button className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
           <button className="button -delete" onClick={this._handleDelete}>
             Delete <Frag frag="delete" />

@@ -58,17 +58,14 @@ var EmailTmp = React.createClass({
     var self = this;
 
     var excerptClasses = classSet({
-      '-excerpt': true,
       'ellipse': this.state.bodyTooLong
     });
 
     var subjectClasses = classSet({
-      '-subject': true,
       'ellipse': this.state.subjectTooLong
     });
 
     var indicators = classSet({
-      'indicator': true,
       '-unread': this.props.email.unread,
     });
 
@@ -80,14 +77,14 @@ var EmailTmp = React.createClass({
       <li className="email">
         <a href="#" className={activeStateClass} onClick={this.handleClick} onBlur={this.handleBlur}>
           <div className="-header">
-            <span className={indicators}></span>
-            <span className={subjectClasses}>{this.props.email.subject.substring(0, 30)}</span>
+            <span className={'indicator ' + indicators}></span>
+            <span className={'-subject ' + subjectClasses}>{this.props.email.subject.substring(0, 30)}</span>
             <span className="date">{moment(this.props.email.recieved).format('L')}</span>
           </div>
           <div className="-sender">
             From: {this.props.email.from.name}
           </div>
-          <div className={excerptClasses}>
+          <div className={'-excerpt ' + excerptClasses}>
             {this.props.email.body.substring(0, 50)}
           </div>
         </a>
