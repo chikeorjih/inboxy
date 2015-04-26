@@ -442,8 +442,15 @@ input {
   margin: 0;
   display: block;
   border: none;
-  background: transparent; }
+  background: transparent;
+  font-family: "freight-sans-pro", sans-serif; }
   input:focus {
+    outline: none; }
+
+textarea {
+  border: 0 solid #fff;
+  min-width: 100%; }
+  textarea:focus {
     outline: none; }
 
 h1 {
@@ -836,7 +843,8 @@ section {
     opacity: 0; }
   .email-viewer.composing input,
   .email-viewer.composing textarea {
-    display: block; }
+    display: block;
+    width: 100%; }
 
 .noactive {
   -webkit-transform: translateY(-400%);

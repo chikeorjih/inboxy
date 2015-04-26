@@ -32,9 +32,7 @@ var EmailViewer = React.createClass({
     });
   },
 
-  _handleDelete: function () {
-    PubSub.publish('deleteEmail', this.state.activeEmailID );
-
+  _clearViewer: function () {
     this.setState({
       subject:     '',
       date:        '',
@@ -45,11 +43,26 @@ var EmailViewer = React.createClass({
     });
   },
 
+  _handleDelete: function () {
+    PubSub.publish('deleteEmail', this.state.activeEmailID );
+    self._clearViewer();
+  },
+
+  _composeHandler: function () {
+    React.findDOMNode(this.refs.subject).focus();
+
+  },
+
   componentDidMount: function () {
     var self = this;
 
     PubSub.subscribe('email.activate', function(msg, data) {
       self._activate(data);
+    });
+
+    PubSub.subscribe('composing', function(msg, data) {
+      self._clearViewer();
+      self._composeHandler();
     });
   },
 
@@ -87,7 +100,7 @@ var EmailViewer = React.createClass({
     return (
       <section className={"email-viewer " + composing}>
         <header classNam="email-header">
-          <h1>{self.state.subject}<input placeholder="Subject..." /></h1>
+          <h1>{self.state.subject}<input ref="subject" placeholder="Subject..." /></h1>
           <span className="date">{self.state.date}</span>
         </header>
         <div className={"-actionbar "  + slideDown}>
@@ -101,6 +114,7 @@ var EmailViewer = React.createClass({
         <article className="-body">
           <div className={"noactive " + fadeCompose}>Compose a new email</div>
           {self.state.body}
+          <textarea placeholder="Begin Typing..." />
         </article>
       </section>
     );

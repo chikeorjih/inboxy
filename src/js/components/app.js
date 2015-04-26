@@ -26,8 +26,10 @@ var APP = React.createClass({
   },
 
   _compose: function() {
+    PubSub.publish('composing');
     this.setState({
-      composing: true
+      composing: true,
+      active: false
     });
 
     // ParseReact.Mutation.Create('TodoItem', {

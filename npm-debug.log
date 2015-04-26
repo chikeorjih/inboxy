@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Volumes/fluffy/osx_home/scott/.nvm/versions/io.js/v1.7.1/bin/iojs',
+1 verbose cli   '/Volumes/fluffy/osx_home/scott/.nvm/versions/io.js/v1.7.1/bin/npm',
+1 verbose cli   'search',
+1 verbose cli   'react',
+1 verbose cli   'textarea' ]
+2 info using npm@2.7.6
+3 info using node@v1.7.1
+4 silly mapToRegistry name -/all
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/-/all
+8 info updateIndex /Volumes/fluffy/osx_home/scott/.npm/registry.npmjs.org/-/all/.cache.json
+9 warn Building the local index for the first time, please be patient
+10 silly update-index fetching https://registry.npmjs.org/-/all
+11 verbose request uri https://registry.npmjs.org/-/all
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 23:24:19
+14 verbose request id 82b55cbf870e2267
+15 http request GET https://registry.npmjs.org/-/all
+16 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 23.235.44.162:443
+17 info attempt registry request try #2 at 23:25:44
+18 http request GET https://registry.npmjs.org/-/all
+19 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 23.235.40.162:443
+20 info attempt registry request try #3 at 23:28:00
+21 http request GET https://registry.npmjs.org/-/all
+22 verbose stack Error: connect ETIMEDOUT 23.235.44.162:443
+22 verbose stack     at Object.exports._errnoException (util.js:749:11)
+22 verbose stack     at exports._exceptionWithHostPort (util.js:772:20)
+22 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:998:14)
+23 verbose cwd /Volumes/fluffy/osx_home/scott/CODE/inboxy
+24 error Darwin 14.3.0
+25 error argv "/Volumes/fluffy/osx_home/scott/.nvm/versions/io.js/v1.7.1/bin/iojs" "/Volumes/fluffy/osx_home/scott/.nvm/versions/io.js/v1.7.1/bin/npm" "search" "react" "textarea"
+26 error node v1.7.1
+27 error npm  v2.7.6
+28 error code ETIMEDOUT
+29 error errno ETIMEDOUT
+30 error syscall connect
+31 error network connect ETIMEDOUT 23.235.44.162:443
+31 error network This is most likely not a problem with npm itself
+31 error network and is related to network connectivity.
+31 error network In most cases you are behind a proxy or have bad network settings.
+31 error network
+31 error network If you are behind a proxy, please make sure that the
+31 error network 'proxy' config is set properly.  See: 'npm help config'
+32 verbose exit [ 1, true ]
