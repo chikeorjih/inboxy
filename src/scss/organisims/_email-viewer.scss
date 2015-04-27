@@ -2,7 +2,9 @@
   background: $email-viewer-bg;
 
   input,
-  textarea {
+  textarea,
+  label,
+  .-attach {
     display: none;
   }
 
@@ -42,7 +44,17 @@
 
   .sender {
     @include flex(1);
+    @include display(flex);
     text-align: left;
+
+    input {
+      @include flex(1);
+    }
+
+    label {
+      margin-right: $small-padding;
+      line-height: 25px;
+    }
   }
 
 
@@ -55,9 +67,19 @@
 
   &.composing {
     input,
-    textarea {
+    textarea,
+    .-attach {
       display: block;
-      width: 100%;
+      // width: 100%;
+    }
+
+    label {
+      display: block;
+    }
+
+    .-mark-unread,
+    .-delete {
+      display: none;
     }
   }
 }

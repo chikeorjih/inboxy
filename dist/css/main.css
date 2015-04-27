@@ -437,19 +437,24 @@ a {
   color: #333333;
   text-decoration: none; }
 
-input {
+input,
+label {
   padding: 0;
   margin: 0;
   display: block;
   border: none;
   background: transparent;
   font-family: "freight-sans-pro", sans-serif; }
-  input:focus {
+  input:focus,
+  label:focus {
     outline: none; }
 
 textarea {
   border: 0 solid #fff;
-  min-width: 100%; }
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  resize: none; }
   textarea:focus {
     outline: none; }
 
@@ -788,7 +793,9 @@ section {
 .email-viewer {
   background: #fff; }
   .email-viewer input,
-  .email-viewer textarea {
+  .email-viewer textarea,
+  .email-viewer label,
+  .email-viewer .-attach {
     display: none; }
   .email-viewer header {
     display: -webkit-box;
@@ -837,14 +844,37 @@ section {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
     text-align: left; }
+    .email-viewer .sender input {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+    .email-viewer .sender label {
+      margin-right: 5px;
+      line-height: 25px; }
   .email-viewer.active .noactive {
     visibility: hidden;
     opacity: 0; }
   .email-viewer.composing input,
-  .email-viewer.composing textarea {
-    display: block;
-    width: 100%; }
+  .email-viewer.composing textarea,
+  .email-viewer.composing .-attach {
+    display: block; }
+  .email-viewer.composing label {
+    display: block; }
+  .email-viewer.composing .-mark-unread,
+  .email-viewer.composing .-delete {
+    display: none; }
 
 .noactive {
   -webkit-transform: translateY(-400%);

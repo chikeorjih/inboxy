@@ -6,6 +6,7 @@ var moment     = require('moment');
 var Frag       = require('svgFrag');
 var PubSub     = require('pubsub-js');
 var classSet   = require('classnames');
+var Textarea   = require('react-textarea-autosize');
 
 var EmailViewer = React.createClass({
 
@@ -104,17 +105,22 @@ var EmailViewer = React.createClass({
           <span className="date">{self.state.date}</span>
         </header>
         <div className={"-actionbar "  + slideDown}>
-          <div className="sender"><input placeholder="To: " />{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
-          <button className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
-          <button className="button -delete" onClick={this._handleDelete}>
+          <div className="sender">
+            <label htmlFor="sendto">To: </label>
+            <input type="text" name="sendto"/>{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
+          <button tabIndex="-1" className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
+          <button tabIndex="-1" className="button -delete" onClick={this._handleDelete}>
             Delete <Frag frag="delete" />
+          </button>
+          <button tabIndex="-1" className="button -attach">
+            Attach <Frag frag="attach" />
           </button>
 
         </div>
         <article className="-body">
           <div className={"noactive " + fadeCompose}>Compose a new email</div>
           {self.state.body}
-          <textarea placeholder="Begin Typing..." />
+          <Textarea placeholder="Begin Typing..." />
         </article>
       </section>
     );

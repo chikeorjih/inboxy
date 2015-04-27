@@ -51,7 +51,8 @@ a {
   text-decoration: none;
 }
 
-input {
+input,
+label {
   padding: 0;
   margin: 0;
   display: block;
@@ -66,7 +67,10 @@ input {
 
 textarea {
   border: 0 solid $white;
+  margin: 0;
+  padding: 0;
   min-width: 100%;
+  resize: none;
 
   &:focus {
     outline: none;
