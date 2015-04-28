@@ -12,12 +12,16 @@ var EmailViewer = React.createClass({
 
   getInitialState: function() {
     return ({
-      subject:     '',
-      date:        '',
-      senderName:  '',
-      senderEmail: '',
-      body:        '',
-      activeEmail: false
+      subject:         '',
+      date:            '',
+      senderName:      '',
+      senderEmail:     '',
+      body:            '',
+      activeEmail:     false,
+      sendable:        false,
+      composedSubject: '',
+      composedBody:    '',
+      recipient:       ''
     });
   },
 
@@ -44,6 +48,41 @@ var EmailViewer = React.createClass({
     });
   },
 
+  _checkSendable: function () {
+    if (this.state.composedSubject != '' && this.state.composedBody != '' && this.state.recipient != '') {
+      this.setState({
+        sendable: true
+      });
+    };
+  },
+
+  _handleChangeSubject: function (e) {
+    var self = this;
+    self.setState({
+      composedSubject: e.target.value
+    });
+
+    self._checkSendable();
+  },
+
+  _handleChangeRecipient: function (e) {
+    var self = this;
+    self.setState({
+      recipient: e.target.value
+    });
+
+    self._checkSendable();
+  },
+
+  _handleChangeBody: function (e) {
+    var self = this;
+    self.setState({
+      composedBody: e.target.value
+    });
+
+    self._checkSendable();
+  },
+
   _handleDelete: function () {
     PubSub.publish('deleteEmail', this.state.activeEmailID );
     self._clearViewer();
@@ -52,6 +91,24 @@ var EmailViewer = React.createClass({
   _composeHandler: function () {
     React.findDOMNode(this.refs.subject).focus();
 
+  },
+
+  _sendEmail: function () {
+    var self = this;
+
+    PubSub.publish('sendEmail', {
+      subject: self.state.composedSubject,
+      body:    self.state.composedBody,
+      to:      {
+        "email": self.state.recipient,
+        "name": "Dum dum"
+      },
+      from:     {
+        "email": "you@thismail.com",
+        "name": "Scott McScotterson"
+      }
+    });
+    self._clearViewer();
   },
 
   componentDidMount: function () {
@@ -97,17 +154,21 @@ var EmailViewer = React.createClass({
       'composing': self.props.composing
     });
 
+    var sendable = classSet({
+      ' -sendable': self.state.sendable
+    });
+
 
     return (
       <section className={"email-viewer " + composing}>
         <header classNam="email-header">
-          <h1>{self.state.subject}<input ref="subject" placeholder="Subject..." /></h1>
+          <h1>{self.state.subject}<input ref="subject" placeholder="Subject..." onChange={this._handleChangeSubject} /></h1>
           <span className="date">{self.state.date}</span>
         </header>
         <div className={"-actionbar "  + slideDown}>
           <div className="sender">
             <label htmlFor="sendto">To: </label>
-            <input type="text" name="sendto"/>{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
+            <input onChange={this._handleChangeRecipient} ref="recipient" type="text" name="sendto"/>{self.state.senderName} <span className="sender-email">{self.state.senderEmail}</span></div>
           <button tabIndex="-1" className="button -mark-unread">Mark as unread <Frag frag="unread" /></button>
           <button tabIndex="-1" className="button -delete" onClick={this._handleDelete}>
             Delete <Frag frag="delete" />
@@ -120,7 +181,12 @@ var EmailViewer = React.createClass({
         <article className="-body">
           <div className={"noactive " + fadeCompose}>Compose a new email</div>
           {self.state.body}
-          <Textarea placeholder="Begin Typing..." />
+          <Textarea onChange={this._handleChangeBody} ref="body" placeholder="Begin Typing..." />
+          <div className="sendEmail">
+            <button onClick={self._sendEmail} className={"button -send" + sendable} disabled={!this.state.sendable}>
+              Send <Frag frag="send" />
+            </button>
+          </div>
         </article>
       </section>
     );

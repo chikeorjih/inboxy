@@ -31,10 +31,10 @@ var APP = React.createClass({
       composing: true,
       active: false
     });
+  },
 
-    // ParseReact.Mutation.Create('TodoItem', {
-    //   text: text
-    // }).dispatch();
+  _sendEmail: function(data) {
+    ParseReact.Mutation.Create('Email', data).dispatch();
   },
 
   _activate: function () {
@@ -48,6 +48,10 @@ var APP = React.createClass({
     var self = this;
     PubSub.subscribe('email.activate', function(msg, data) {
       self._activate();
+    });
+
+    PubSub.subscribe('sendEmail', function(msg, data) {
+      self._sendEmail(data);
     });
   },
 

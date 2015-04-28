@@ -1,9 +1,10 @@
 /** @jsx React.DOM */
-var React         = require('react');
-var classSet      = require('classnames');
-var moment        = require('moment');
-var PubSub        = require('pubsub-js');
-var ParseReact    = require('parse-react');
+var React      = require('react');
+var classSet   = require('classnames');
+var moment     = require('moment');
+var PubSub     = require('pubsub-js');
+var ParseReact = require('parse-react');
+var Frag       = require('svgFrag');
 
 var EmailTmp = React.createClass({
   getInitialState: function() {
@@ -54,6 +55,22 @@ var EmailTmp = React.createClass({
     });
   },
 
+  _revealTools: function() {
+    this.setState({
+      hovering: true
+    });
+  },
+
+  _hideTools: function() {
+    this.setState({
+      hovering: false
+    });
+  },
+
+  _handleDelete: function () {
+    PubSub.publish('deleteEmail', this.props.email.objectId );
+  },
+
   render: function(){
     var self = this;
 
@@ -73,9 +90,16 @@ var EmailTmp = React.createClass({
       '-active': this.state.active
     });
 
+    var hoveringClass = classSet({
+      ' -hovering': this.state.hovering
+    });
+
     return (
-      <li className="email">
-        <a href="#" className={activeStateClass} onClick={this.handleClick} onBlur={this.handleBlur}>
+      <li className="email"
+        onMouseOver={self._revealTools}
+        onMouseOut={self._hideTools}
+      >
+        <a href="#" className={activeStateClass + hoveringClass} onClick={this.handleClick} onBlur={this.handleBlur}>
           <div className="-header">
             <span className={'indicator ' + indicators}></span>
             <span className={'-subject ' + subjectClasses}>{this.props.email.subject.substring(0, 30)}</span>
@@ -88,6 +112,9 @@ var EmailTmp = React.createClass({
             {this.props.email.body.substring(0, 50)}
           </div>
         </a>
+        <div onClick={this._handleDelete} className="quickTools">
+          <Frag  frag="delete" />
+        </div>
       </li>
     );
   }

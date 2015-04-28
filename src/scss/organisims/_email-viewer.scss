@@ -8,6 +8,10 @@
     display: none;
   }
 
+  .sendEmail {
+    display: none;
+  }
+
   header {
     @include display(flex);
     padding: $large-padding;
@@ -80,6 +84,10 @@
     .-mark-unread,
     .-delete {
       display: none;
+    }
+
+    .sendEmail {
+      display: block;
     }
   }
 }

@@ -1,9 +1,10 @@
 /** @jsx React.DOM */
-var Parse       = require('parse').Parse;
-var React       = require('react');
-var ParseReact  = require('parse-react');
-var EmailTmp    = require('EmailTmp');
-var PubSub      = require('pubsub-js');
+var Parse           = require('parse').Parse;
+var React           = require('react');
+var ParseReact      = require('parse-react');
+var EmailTmp        = require('EmailTmp');
+var PubSub          = require('pubsub-js');
+var GeminiScrollbar = require('react-gemini-scrollbar');
 
 var EmailList = React.createClass({
   mixins: [ParseReact.Mixin],
@@ -15,6 +16,7 @@ var EmailList = React.createClass({
   },
 
   _deleteEmail: function(msg, id) {
+    console.log(msg, id);
     var trash = {
       className: 'Email',
       objectId: id

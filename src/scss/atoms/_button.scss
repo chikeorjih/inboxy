@@ -23,6 +23,43 @@
     }
   }
 
+  &.-send {
+    @include transition(all .2s);
+    display: block;
+    float: right;
+    background-color: darken($light-grey, 10%);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 0px darken($light-grey, 20%);
+    vertical-align: middle;
+    line-height: 20px;
+    color: darken($light-grey, 50%);
+
+    svg {
+      @include transition(all .2s);
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      line-height: 15px;
+      position: relative;
+      top: -1px;
+      margin-left: 5px;
+      fill: darken($light-grey, 50%);
+    }
+
+    &.-sendable {
+      background-color: $blue;
+      color: $white;
+      box-shadow: 0 2px 0px darken($blue, 15%);
+
+      svg {
+        fill: $white;
+      }
+    }
+  }
+
   .svgWrapper {
     float: right;
   }
